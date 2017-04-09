@@ -25,7 +25,7 @@ btn2.onclick = null;    // 删除btn2的onclick事件处理程序
 
 ### 3. DOM2级事件处理程序
 定义了两个方法,用于处理指定和删除事件处理程序的操作：  
-```javascript
+``` javascript
 addEventListener(eventType,listener[,useCapture])
 removeEventListener()
 ```
@@ -33,10 +33,12 @@ removeEventListener()
 - eventType : string类型。要监听的事件名。
 - listener : 作为事件处理程序的函数。
 - useCapture : Boolean类型，可选。true表示使用捕获事件流方式传播事件，false表示使用事件冒泡方式。默认false。在冒泡阶段捕获事件，可以兼容各大浏览器，注意推荐设置为false。
+
 ``` html
 <input type="button" value="按钮3" id="btn3"/>
 ```
-```javascript
+
+``` javascript
 function showMessage(){
     alert(this.value);  // this引用被触发事件的节点对象
 }
@@ -62,10 +64,11 @@ IE不支持DOM2级事件处理程序。
 btn2.attachEvent('onclick', showMessage);
 btn2.detachEvent('onclick', showMessage);
 ```
+
 ### 跨浏览器的事件处理程序
 能力检测。  
 
-```javascript
+``` javascript
 var eventUtil = {
     addHandler: function (element, type, handler) {
         if (element.addEventListener) { // DOM2 级事件处理程序
