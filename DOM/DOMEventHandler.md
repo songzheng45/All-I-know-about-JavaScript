@@ -81,7 +81,7 @@ var eventUtil = {
     },
     removeHandler: function (element, type, handler) {
         if (element.removeEventListener) { // DOM2 级事件处理程序
-            element.addEventListener(type, handler, false);
+            element.removeEventListener(type, handler, false);
         } else if (element.deatachEvent) { // DOM2 级IE事件处理程序
             element.deatachEvent('on' + type, handler);
         } else {    // DOM0 级事件处理程序
